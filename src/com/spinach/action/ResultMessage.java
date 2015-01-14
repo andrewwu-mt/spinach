@@ -106,7 +106,7 @@ public class ResultMessage extends StrutsResultSupport  {
         	message = "You have logged out";
 		}
         else if(invocation.getResultCode().equalsIgnoreCase("login-admin")) {
-        	message = "Wrong data";
+        	message = "Please login as Administrator";
 		}
 		
 		buffer.append("<script type=\"text/javascript\">");

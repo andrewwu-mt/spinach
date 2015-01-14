@@ -167,6 +167,12 @@
 		<property name="productDAO">
 			<ref bean="ProductDAO" />
 		</property>
+		<property name="customerDAO">
+			<ref bean="CustomerDAO" />
+		</property>
+		<property name="kabupatenDAO">
+			<ref bean="KabupatenDAO" />
+		</property>
 	</bean>
 	
    </beans>

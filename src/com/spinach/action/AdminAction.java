@@ -1,5 +1,6 @@
 package com.spinach.action;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,11 +10,15 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.spinach.dao.AdminDAO;
+import com.spinach.dao.CustomerDAO;
+import com.spinach.dao.KabupatenDAO;
 import com.spinach.dao.OrderDAO;
 import com.spinach.dao.ProductDAO;
 import com.spinach.dao.ShipDAO;
 import com.spinach.dao.StockDAO;
 import com.spinach.dbo.Admin;
+import com.spinach.dbo.Customer;
+import com.spinach.dbo.Kabupaten;
 import com.spinach.dbo.Order;
 import com.spinach.dbo.Product;
 import com.spinach.dbo.Ship;
@@ -31,6 +36,7 @@ public class AdminAction extends ActionSupport {
 	private int id;
 	private int productId;
 	private Long shipId;
+	private CustomerDAO customerDAO;
 	
 	private String name;
 	private String description;
@@ -47,6 +53,97 @@ public class AdminAction extends ActionSupport {
 	private List<Stock> stockList;
 	private List<Order> orderList;
 	
+
+	private KabupatenDAO kabupatenDAO;
+	
+	private String last;
+	private String email;
+	
+	private String address;
+	private String address2;
+	private String phone;
+	private Integer post;
+	
+	private Integer kabupatenId;
+	private Integer customerId;
+	
+	private String oldPwd;
+	private String newPwd;
+	
+	public String execute(){
+		return SUCCESS;
+	}
+
+	//========================================================================
+	
+	//User Record
+	public String allUserRecords(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		List customerList = customerDAO.findAll();
+		request.setAttribute("customerList", customerList);
+		
+		return SUCCESS;
+	}
+	
+	public String getUserRecord(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Customer customer = customerDAO.findById(customerId);
+		request.setAttribute("customer", customer);
+		
+		return SUCCESS;
+	}
+	
+	public String saveUserRecord(){
+		Customer customer = new Customer();
+		customer.setName(name);
+		customer.setEmail(email);
+		customer.setPassword(password);
+		customer.setInsertDate(new Timestamp(System.currentTimeMillis()));
+		
+		customerDAO.save(customer);
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		session.setAttribute("customer", customer);
+		
+		return "successsave";
+	}
+
+	public String updateUserRecord(){
+		Kabupaten kab = kabupatenDAO.findById(kabupatenId);
+		Customer cus = customerDAO.findById(customerId);
+		cus.setName(name);
+		cus.setLast(last);
+		cus.setEmail(email);
+		cus.setKabupaten(kab);
+		cus.setPhone(phone);
+		cus.setPassword(password);
+		cus.setAddress(address);
+		cus.setAddress2(address2);
+		cus.setPost(post);
+		
+		customerDAO.update(cus);
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		session.removeAttribute("customer");
+		session.setAttribute("customer", cus);
+		
+		return SUCCESS;
+	}
+
+	public String deleteUserRecord(){
+		Customer cus = customerDAO.findById(customerId);
+		customerDAO.delete(cus);
+		
+		return "successdelete";
+	}
+	
+	
+	//========================================================================
+	
+	
+	//login
 	public String login(){
 		List<Admin> admin = adminDAO.findByUsername(username);
 		if(admin.size() != 0){
@@ -63,7 +160,11 @@ public class AdminAction extends ActionSupport {
 			return "error";
 		}
 	}
+
+	//========================================================================
 	
+	
+	//Stock Records
 	public String getRecord(){
 		stockList = stockDAO.findAll();
 		return SUCCESS;
@@ -85,6 +186,21 @@ public class AdminAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
+
+	//========================================================================
+	
+
+	//Stock Records
+	public String getShipDetailRecord(){
+		orderList = orderDAO.findByProperty("ship.shipId", shipId);
+		return SUCCESS;
+	}
+	
+	
+	//========================================================================
+	
+	
+	//Ship Records
 	public String getShipListRecord(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		List<Ship> shipList = shipDAO.findByMonth(month, year);
@@ -92,6 +208,11 @@ public class AdminAction extends ActionSupport {
 		Long fee = shipDAO.findPrice(month, year, "fee");
 		Long adminFee = shipDAO.findAdminFee(month, year);
 		Long total = shipDAO.findPrice(month, year, "total");
+		
+		if(subtotal == null) subtotal = (long) 0;
+		if(fee == null) fee = (long) 0;
+		if(adminFee == null) adminFee = (long) 0;
+		if(total == null) total = (long) 0;
 		
 		request.setAttribute("shipList", shipList);
 		request.setAttribute("subtotal", subtotal);
@@ -103,10 +224,6 @@ public class AdminAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	public String getShipDetailRecord(){
-		orderList = orderDAO.findByProperty("ship.shipId", shipId);
-		return SUCCESS;
-	}
 
 	public String deleteShipRecord(){
 		Ship ship = shipDAO.findById(shipId);
@@ -320,6 +437,102 @@ public class AdminAction extends ActionSupport {
 
 	public void setYear(Integer year) {
 		this.year = year;
+	}
+
+	public CustomerDAO getCustomerDAO() {
+		return customerDAO;
+	}
+
+	public void setCustomerDAO(CustomerDAO customerDAO) {
+		this.customerDAO = customerDAO;
+	}
+
+	public KabupatenDAO getKabupatenDAO() {
+		return kabupatenDAO;
+	}
+
+	public void setKabupatenDAO(KabupatenDAO kabupatenDAO) {
+		this.kabupatenDAO = kabupatenDAO;
+	}
+
+	public String getLast() {
+		return last;
+	}
+
+	public void setLast(String last) {
+		this.last = last;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getAddress2() {
+		return address2;
+	}
+
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Integer getPost() {
+		return post;
+	}
+
+	public void setPost(Integer post) {
+		this.post = post;
+	}
+
+	public Integer getKabupatenId() {
+		return kabupatenId;
+	}
+
+	public void setKabupatenId(Integer kabupatenId) {
+		this.kabupatenId = kabupatenId;
+	}
+
+	public Integer getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getOldPwd() {
+		return oldPwd;
+	}
+
+	public void setOldPwd(String oldPwd) {
+		this.oldPwd = oldPwd;
+	}
+
+	public String getNewPwd() {
+		return newPwd;
+	}
+
+	public void setNewPwd(String newPwd) {
+		this.newPwd = newPwd;
 	}
 
 }

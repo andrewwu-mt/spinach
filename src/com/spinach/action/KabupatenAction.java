@@ -19,6 +19,14 @@ public class KabupatenAction extends ActionSupport{
 	
 	private int provinsiId;
 	
+	public String allRecords(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		List kabupatenList = kabupatenDAO.findAll();
+		request.setAttribute("kabupatenList", kabupatenList);
+		
+		return SUCCESS;
+	}
+	
 	public String getRecord(){
 		Provinsi provinsi = provinsiDAO.findById(1);
 		List<Kabupaten> kabupatenList = kabupatenDAO.findByProperty("provinsi", provinsi);

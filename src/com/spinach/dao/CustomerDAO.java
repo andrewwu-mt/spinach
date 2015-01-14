@@ -125,7 +125,7 @@ public class CustomerDAO extends HibernateDaoSupport {
 	public List findAll() {
 		log.debug("finding all Customer instances");
 		try {
-			String queryString = "from Customer";
+			String queryString = "from Customer as model order by model.email asc";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);

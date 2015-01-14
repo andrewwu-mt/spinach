@@ -16,7 +16,6 @@
 			<result name="login-admin" type="result-message">admin</result>
 		</global-results>
     
-      
 		<action name="*" class="IndexAction" >
 			<result name="success">/WEB-INF/jsp/{1}.jsp</result>
 		</action>
@@ -168,13 +167,47 @@
 		<!-- Ship Type Action End -->
 		
 		<!-- Admin Action -->
+		<action name="ship-list" class="AdminAction" >
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="success">/WEB-INF/jsp/ship-list.jsp</result>
+		</action>
+		<action name="user-list" class="AdminAction" >
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="success">/WEB-INF/jsp/user-list.jsp</result>
+		</action>
+		<action name="user-edit" class="AdminAction" >
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="success">/WEB-INF/jsp/user-edit.jsp</result>
+		</action>
+		
+		<action name="user-all" class="AdminAction" method="allUserRecords" />
+		<action name="user-get" class="AdminAction" method="getUserRecord" />
+		
+		<action name="user-save" class="AdminAction" method="saveUserRecord" >
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="successsave" type="result-message">user-list</result>
+		</action>
+		<action name="user-update" class="AdminAction" method="updateUserRecord" >
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="success" type="result-message">user-list</result>
+		</action>
+		<action name="user-delete" class="AdminAction" method="deleteUserRecord" >
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="successdelete" type="result-message">user-list</result>
+		</action>
+		
 		<action name="stock-list" class="AdminAction" method="getRecord">
 			<interceptor-ref name="checkAdmin"/>
 			<interceptor-ref name="defaultStack"/>
 				<result name="input">WEB-INF/jsp/admin.jsp</result>
 				<result name="success">WEB-INF/jsp/stock-list.jsp</result>
 		</action>
-		
 		<action name="login" class="AdminAction" method="login">
 			<result name="error" type="result-message">admin</result>
 			<result name="successlogin" type="result-message">ship-list</result>
@@ -183,12 +216,6 @@
 			<interceptor-ref name="checkAdmin"/>
 			<interceptor-ref name="defaultStack"/>
 				<result name="success" type="result-message">stock-list</result>
-		</action>
-		<action name="ship-list" class="AdminAction" method="getShipListRecord">
-			<interceptor-ref name="checkAdmin"/>
-			<interceptor-ref name="defaultStack"/>
-				<result name="input">WEB-INF/jsp/admin.jsp</result>
-				<result name="success">WEB-INF/jsp/ship-list.jsp</result>
 		</action>
 		<action name="ship-detail" class="AdminAction" method="getShipDetailRecord">
 			<result name="input">WEB-INF/jsp/admin.jsp</result>
@@ -204,6 +231,7 @@
 			<interceptor-ref name="defaultStack"/>
 				<result name="successdelete" type="result-message">ship-list</result>
 		</action>
+		<action name="ship-all" class="AdminAction" method="getShipListRecord" />
 		<!-- Admin Action End -->
 		
 		<!-- Provinsi Action -->
@@ -212,6 +240,7 @@
 		
 		<!-- Kabupaten Action -->
 		<action name="kabupaten-get" class="KabupatenAction" method="getRecord"/>
+		<action name="kabupaten-all" class="KabupatenAction" method="allRecords"/>
 		<!-- Kabupaten Action End -->
 		
     </package>

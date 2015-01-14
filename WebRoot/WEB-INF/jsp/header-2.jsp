@@ -30,6 +30,7 @@
         <ul>
           <li><a href="stock-list">Stock List</a></li>
           <li><a href="ship-list">Ship List</a></li>
+          <li><a href="user-list">User List</a></li>
         </ul>
       </div>
     </div>
