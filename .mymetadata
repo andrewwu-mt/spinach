@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="spinach"
+  id="myeclipse.1410538647870"
+  context-root="/spinach"
+  j2ee-spec="6.0"
+  archive="spinach.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

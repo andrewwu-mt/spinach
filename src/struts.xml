@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.objectFactory" value="spring" />
+    <package name="default" namespace="/" extends="struts-default, json-default">  
+		<result-types>  
+			<result-type name="result-message" class="ResultMessage" />  
+		</result-types> 
+      	<interceptors>
+			<interceptor name="checkAdmin" class="AdminInterceptor"></interceptor>
+			<interceptor name="checkLogin" class="LoginInterceptor"></interceptor>
+		</interceptors>
+		<global-results>
+			<result name="relogin" type="result-message">index</result>
+			<result name="login-admin" type="result-message">admin</result>
+		</global-results>
+    
+      
+		<action name="*" class="IndexAction" >
+			<result name="success">/WEB-INF/jsp/{1}.jsp</result>
+		</action>
+		
+		<!-- Exchange Start -->
+		<action name="exchange-get" class="ExchangeAction" method="getRecord" />
+		<!-- Exchange End -->
+		
+		<!-- Customer Start -->
+		<action name="customer-edit" class="IndexAction" >
+			<interceptor-ref name="checkLogin"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="success">/WEB-INF/jsp/customer-edit.jsp</result>
+		</action>
+		
+		<action name="customer-get-session" class="CustomerAction" method="getSession" />
+		
+		<action name="customer-save" class="CustomerAction" method="saveRecord">
+			<result name="successsave" type="result-message">cart-list</result>
+		</action>
+		<action name="customer-update" class="CustomerAction" method="updateRecord">
+			<interceptor-ref name="checkLogin"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="success" type="result-message">customer-edit</result>
+		</action>
+		<action name="customer-password-update" class="CustomerAction" method="updatePwd">
+			<interceptor-ref name="checkLogin"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="passworderror" type="result-message">customer-edit</result>
+			<result name="success" type="result-message">customer-edit</result>
+		</action>
+		<action name="customer-login" class="CustomerAction" method="login">
+			<result name="error" type="result-message">index</result>
+			<result name="successlogin" type="result-message">cart-list</result>
+		</action>
+		<action name="customer-forget" class="CustomerAction" method="forget">
+			<result name="error" type="result-message">index</result>
+			<result name="sent" type="result-message">index</result>
+		</action>
+		<action name="customer-logout" class="CustomerAction" method="logout">
+			<interceptor-ref name="checkLogin"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="successlogout" type="result-message">index</result>
+		</action>
+		
+		<!-- Customer End -->
+		
+		<!-- Contact Us Start -->
+		<action name="send-message" class="com.spinach.action.ContactUsAction" method="sendMessage" >
+			<result name="success" type="result-message">contact</result>
+		</action>
+		<!-- Contact Us End -->
+		
+		<!-- Best Seller Start -->
+		<action name="best-seller-all" class="BestSellerAction" method="allRecords" />
+		<!-- Best Seller End -->
+		
+		<!-- Top Rated Start -->
+		<action name="top-rated-all" class="TopRatedAction" method="allRecords" />
+		<!-- Top Rated End -->
+		
+		<!-- Category Start -->
+		<action name="category-all" class="CategoryAction" method="allRecords" />
+		<!-- Category End -->
+		
+		<!-- Json Start -->
+		<action name="json-region" class="JsonRegion" method="getRecordJson">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="json-customer-email" class="JsonCustomer" method="chkEmail">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- Json End -->
+		
+		<!-- Product Action -->
+		<action name="product-home" class="ProductAction" method="homeRecords"/>
+		<action name="product-all" class="ProductAction" method="allRecords"/>
+		<action name="product-get" class="ProductAction" method="getRecord"/>
+		
+		<action name="product-search" class="ProductAction" method="searchRecord">
+			<result name="success">/WEB-INF/jsp/search-results.jsp</result>
+		</action>
+		<!-- Product Action End -->
+		
+		<!-- Type Action -->
+		<action name="type-all" class="TypeAction" method="allRecords"/>
+		
+		<!-- Type Action End -->
+		
+		<!-- Cart Action -->
+		<action name="cart-all" class="CartAction" method="allRecords"/>
+		
+		<action name="cart-add" class="CartAction" method="add">
+			<result name="success">WEB-INF/jsp/cart-list.jsp</result>
+		</action>
+		<action name="cart-del" class="CartAction" method="delete">
+			<result name="cartempty" type="result-message">product-list</result>
+			<result name="success">WEB-INF/jsp/cart-list.jsp</result>
+		</action>
+		<action name="cart-list" class="CartAction" method="list">
+			<result name="cartempty" type="result-message">index</result>
+			<result name="success">WEB-INF/jsp/cart-list.jsp</result>
+		</action>
+		<action name="checkout" class="CartAction" method="checkout">
+			<interceptor-ref name="checkLogin"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="cartempty" type="result-message">index</result>
+			<result name="success">WEB-INF/jsp/checkout.jsp</result>
+		</action>
+		
+		<!-- Cart Action End -->
+		
+		<!-- Order Action -->
+		<action name="order-add" class="OrderAction" method="add">
+			<interceptor-ref name="checkLogin"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="cartempty" type="result-message">product-list</result>
+			<result name="success"  type="redirect">
+	        	<param name="location">order-received</param>
+	            <param name="id">${#request.shipId}</param>
+            </result>
+			<result name="paypal">WEB-INF/jsp/paypal-redirect.jsp</result>
+		</action>
+		
+		<action name="order-paypal" class="OrderAction" method="paypal">
+			<interceptor-ref name="checkLogin"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="cartempty" type="result-message">product-list</result>
+		</action>
+		<!-- Order Action End -->
+		
+		<!-- Ship User Action -->
+		<action name="ship-get" class="ShipAction" method="getRecord" />
+		
+		<action name="payment-success" class="ShipAction" method="success">
+			<result name="success"  type="redirect">
+	        	<param name="location">order-received</param>
+	            <param name="id">${#request.shipId}</param>
+            </result>
+		</action>
+		
+		<action name="payment-cancel" class="ShipAction" method="cancel">
+			<result name="success"  type="redirect">order-cancel</result>
+		</action>
+		<!-- Ship User Action End -->
+		
+		<!-- Ship Type Action -->
+		<action name="ship-type-all" class="ShipTypeAction" method="allRecords"/>
+		<!-- Ship Type Action End -->
+		
+		<!-- Admin Action -->
+		<action name="stock-list" class="AdminAction" method="getRecord">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="input">WEB-INF/jsp/admin.jsp</result>
+				<result name="success">WEB-INF/jsp/stock-list.jsp</result>
+		</action>
+		
+		<action name="login" class="AdminAction" method="login">
+			<result name="error" type="result-message">admin</result>
+			<result name="successlogin" type="result-message">ship-list</result>
+		</action>
+		<action name="stock-update" class="AdminAction" method="update">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="success" type="result-message">stock-list</result>
+		</action>
+		<action name="ship-list" class="AdminAction" method="getShipListRecord">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="input">WEB-INF/jsp/admin.jsp</result>
+				<result name="success">WEB-INF/jsp/ship-list.jsp</result>
+		</action>
+		<action name="ship-detail" class="AdminAction" method="getShipDetailRecord">
+			<result name="input">WEB-INF/jsp/admin.jsp</result>
+			<result name="success">WEB-INF/jsp/ship-detail.jsp</result>
+		</action>
+		<action name="ship-update-status" class="AdminAction" method="updateStatus">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="success" type="result-message">ship-list</result>
+		</action>
+		<action name="ship-del" class="AdminAction" method="deleteShipRecord">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="successdelete" type="result-message">ship-list</result>
+		</action>
+		<!-- Admin Action End -->
+		
+		<!-- Provinsi Action -->
+		<action name="provinsi-all" class="ProvinsiAction" method="allRecords"/>
+		<!-- Provinsi Action End -->
+		
+		<!-- Kabupaten Action -->
+		<action name="kabupaten-get" class="KabupatenAction" method="getRecord"/>
+		<!-- Kabupaten Action End -->
+		
+    </package>
+
+</struts>    

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+    
+    <bean id="IndexAction" class="com.spinach.action.IndexAction" scope="prototype"  />
+	<bean id="ResultMessage" class="com.spinach.action.ResultMessage" scope="prototype"  />
+	<bean id="AdminInterceptor" class="com.spinach.interceptor.AdminInterceptor" scope="prototype" />
+	<bean id="LoginInterceptor" class="com.spinach.interceptor.LoginInterceptor" scope="prototype" />
+	
+	<bean id="CustomerAction" class="com.spinach.action.CustomerAction" scope="prototype">
+		<property name="customerDAO">
+			<ref bean="CustomerDAO" />
+		</property>
+		<property name="kabupatenDAO">
+			<ref bean="KabupatenDAO" />
+		</property>
+	</bean>
+	
+	<bean id="JsonCustomer" class="com.spinach.json.JsonCustomer" scope="prototype">
+		<property name="customerDAO">
+			<ref bean="CustomerDAO" />
+		</property>
+	</bean>
+	
+	<bean id="ExchangeAction" class="com.spinach.action.ExchangeAction" scope="prototype">
+		<property name="exchangeDAO">
+			<ref bean="ExchangeDAO" />
+		</property>
+	</bean>
+	
+	<bean id="BestSellerAction" class="com.spinach.action.BestSellerAction" scope="prototype">
+		<property name="bestSellerDAO">
+			<ref bean="BestSellerDAO" />
+		</property>
+	</bean>
+	
+	<bean id="TopRatedAction" class="com.spinach.action.TopRatedAction" scope="prototype">
+		<property name="topRatedDAO">
+			<ref bean="TopRatedDAO" />
+		</property>
+	</bean>
+	
+	<bean id="CategoryAction" class="com.spinach.action.CategoryAction" scope="prototype">
+		<property name="categoryDAO">
+			<ref bean="CategoryDAO" />
+		</property>
+	</bean>
+	
+	<bean id="JsonRegion" class="com.spinach.json.JsonRegion" scope="prototype">
+		<property name="provinsiDAO">
+			<ref bean="ProvinsiDAO" />
+		</property>
+		<property name="kabupatenDAO">
+			<ref bean="KabupatenDAO" />
+		</property>
+	</bean>
+	
+	<bean id="ProductAction" class="com.spinach.action.ProductAction" scope="prototype">
+		<property name="productDAO">
+			<ref bean="ProductDAO" />
+		</property>
+		<property name="typeDAO">
+			<ref bean="TypeDAO" />
+		</property>
+		<property name="stockDAO">
+			<ref bean="StockDAO" />
+		</property>
+	</bean>
+	
+	<bean id="CartAction" class="com.spinach.action.CartAction" scope="prototype">
+		<property name="productDAO">
+			<ref bean="ProductDAO" />
+		</property>
+		<property name="stockDAO">
+			<ref bean="StockDAO" />
+		</property>
+		<property name="exchangeDAO">
+			<ref bean="ExchangeDAO" />
+		</property>
+	</bean>
+	
+	<bean id="TypeAction" class="com.spinach.action.TypeAction" scope="prototype">
+		<property name="typeDAO">
+			<ref bean="TypeDAO" />
+		</property>
+	</bean>
+	
+	<bean id="OrderAction" class="com.spinach.action.OrderAction" scope="prototype">
+		<property name="customerDAO">
+			<ref bean="CustomerDAO" />
+		</property>
+		<property name="productDAO">
+			<ref bean="ProductDAO" />
+		</property>
+		<property name="orderDAO">
+			<ref bean="OrderDAO" />
+		</property>
+		<property name="shipDAO">
+			<ref bean="ShipDAO" />
+		</property>
+		<property name="shipTypeDAO">
+			<ref bean="ShipTypeDAO" />
+		</property>
+		<property name="stockDAO">
+			<ref bean="StockDAO" />
+		</property>
+		<property name="kabupatenDAO">
+			<ref bean="KabupatenDAO" />
+		</property>
+		<property name="paymentMethodDAO">
+			<ref bean="PaymentMethodDAO" />
+		</property>
+	</bean>
+	
+	<bean id="ShipAction" class="com.spinach.action.ShipAction" scope="prototype">
+		<property name="shipDAO">
+			<ref bean="ShipDAO" />
+		</property>
+		<property name="exchangeDAO">
+			<ref bean="ExchangeDAO" />
+		</property>
+		<property name="orderDAO">
+			<ref bean="OrderDAO" />
+		</property>
+		<property name="stockDAO">
+			<ref bean="StockDAO" />
+		</property>
+	</bean>
+	
+	<bean id="ShipTypeAction" class="com.spinach.action.ShipTypeAction" scope="prototype">
+		<property name="shipTypeDAO">
+			<ref bean="ShipTypeDAO" />
+		</property>
+	</bean>
+	
+	<bean id="ProvinsiAction" class="com.spinach.action.ProvinsiAction" scope="prototype">
+		<property name="provinsiDAO">
+			<ref bean="ProvinsiDAO" />
+		</property>
+	</bean>
+	
+	<bean id="KabupatenAction" class="com.spinach.action.KabupatenAction" scope="prototype">
+		<property name="provinsiDAO">
+			<ref bean="ProvinsiDAO" />
+		</property>
+		<property name="kabupatenDAO">
+			<ref bean="KabupatenDAO" />
+		</property>
+	</bean>
+	
+	<bean id="AdminAction" class="com.spinach.action.AdminAction" scope="prototype">
+		<property name="stockDAO">
+			<ref bean="StockDAO" />
+		</property>
+		<property name="adminDAO">
+			<ref bean="AdminDAO" />
+		</property>
+		<property name="shipDAO">
+			<ref bean="ShipDAO" />
+		</property>
+		<property name="orderDAO">
+			<ref bean="OrderDAO" />
+		</property>
+		<property name="productDAO">
+			<ref bean="ProductDAO" />
+		</property>
+	</bean>
+	
+   </beans>
