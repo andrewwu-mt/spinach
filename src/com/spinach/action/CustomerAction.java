@@ -1,7 +1,6 @@
 package com.spinach.action;
 
 import java.sql.Timestamp;
-import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +13,7 @@ import com.spinach.bean.MailUtil;
 import com.spinach.dao.CustomerDAO;
 import com.spinach.dao.KabupatenDAO;
 import com.spinach.dbo.Customer;
-import com.spinach.dbo.Exchange;
 import com.spinach.dbo.Kabupaten;
-import com.spinach.dbo.Ship;
 
 public class CustomerAction extends ActionSupport{
 	
