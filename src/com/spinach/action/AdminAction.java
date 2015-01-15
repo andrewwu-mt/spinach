@@ -37,6 +37,7 @@ public class AdminAction extends ActionSupport {
 	private int productId;
 	private Long shipId;
 	private CustomerDAO customerDAO;
+	private String path;
 	
 	private String name;
 	private String description;
@@ -133,10 +134,16 @@ public class AdminAction extends ActionSupport {
 	}
 
 	public String deleteUserRecord(){
-		Customer cus = customerDAO.findById(customerId);
-		customerDAO.delete(cus);
-		
-		return "successdelete";
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.setAttribute("path", path);
+		try{
+			Customer cus = customerDAO.findById(customerId);
+			customerDAO.delete(cus);
+			
+			return "successdelete";
+		} catch (Exception e){
+			return "deleteusererror";
+		}
 	}
 	
 	
@@ -226,6 +233,9 @@ public class AdminAction extends ActionSupport {
 	
 
 	public String deleteShipRecord(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.setAttribute("path", path);
+		
 		Ship ship = shipDAO.findById(shipId);
 		List<Order> orderList = orderDAO.findByProperty("ship", ship);
 		for(int i=0 ; i<orderList.size() ; i++){
@@ -250,6 +260,9 @@ public class AdminAction extends ActionSupport {
 	}
 	
 	public String updateStatus(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.setAttribute("path", path);
+		
 		Ship ship = shipDAO.findByIdJoin(shipId);
 		if(status == 0){
 			ship.setStatus((short) 1);
@@ -533,6 +546,14 @@ public class AdminAction extends ActionSupport {
 
 	public void setNewPwd(String newPwd) {
 		this.newPwd = newPwd;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 }

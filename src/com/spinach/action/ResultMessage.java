@@ -59,6 +59,7 @@ public class ResultMessage extends StrutsResultSupport  {
 			finalLocation = response.encodeRedirectURL(finalLocation);
 		}
 
+		finalLocation = finalLocation.replace(",", "&");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setHeader("Cache-Control", "no-cache");
 		
@@ -107,6 +108,9 @@ public class ResultMessage extends StrutsResultSupport  {
 		}
         else if(invocation.getResultCode().equalsIgnoreCase("login-admin")) {
         	message = "Please login as Administrator";
+		}
+        else if(invocation.getResultCode().equalsIgnoreCase("deleteusererror")) {
+        	message = "This user already has order records";
 		}
 		
 		buffer.append("<script type=\"text/javascript\">");

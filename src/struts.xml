@@ -200,6 +200,7 @@
 			<interceptor-ref name="checkAdmin"/>
 			<interceptor-ref name="defaultStack"/>
 				<result name="successdelete" type="result-message">user-list</result>
+				<result name="deleteusererror" type="result-message">${#request.path}</result>
 		</action>
 		
 		<action name="stock-list" class="AdminAction" method="getRecord">
@@ -224,12 +225,12 @@
 		<action name="ship-update-status" class="AdminAction" method="updateStatus">
 			<interceptor-ref name="checkAdmin"/>
 			<interceptor-ref name="defaultStack"/>
-				<result name="success" type="result-message">ship-list</result>
+				<result name="success" type="result-message">${#request.path}</result>
 		</action>
 		<action name="ship-del" class="AdminAction" method="deleteShipRecord">
 			<interceptor-ref name="checkAdmin"/>
 			<interceptor-ref name="defaultStack"/>
-				<result name="successdelete" type="result-message">ship-list</result>
+				<result name="successdelete" type="result-message">${#request.path}</result>
 		</action>
 		<action name="ship-all" class="AdminAction" method="getShipListRecord" />
 		<!-- Admin Action End -->

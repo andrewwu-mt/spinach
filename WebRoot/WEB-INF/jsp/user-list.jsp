@@ -13,6 +13,17 @@
 
 <s:action name="user-all" executeResult="false" />
 
+<script>
+$(document).ready(function(){
+	var url = location.href;
+	
+	$(".delete").each(function(){
+		var href = $(this).attr('href');
+		$(this).attr('href', href+"&path="+url);
+	});
+	
+});
+</script>
 </head>
 <body>
 	<div id="content" align="center">

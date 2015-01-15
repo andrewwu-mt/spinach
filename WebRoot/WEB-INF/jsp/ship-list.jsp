@@ -15,6 +15,23 @@
 	<s:param name="year" value="#parameters.year" />
 </s:action>
 
+<script>
+$(document).ready(function(){
+	var url = location.href;
+	url = url.replace("&", ",");
+	
+	$(".payment").each(function(){
+		var href = $(this).attr('href');
+		$(this).attr('href', href+"&path="+url);
+	});
+
+	$(".delete").each(function(){
+		var href = $(this).attr('href');
+		$(this).attr('href', href+"&path="+url);
+	});
+});
+</script>
+
 </head>
 <body>
 	<div id="content" align="center">
@@ -31,7 +48,7 @@
 			<display:table name="request.shipList" requestURI="ship-list" id="resulttable" pagesize="20" defaultsort="11" defaultorder="ascending" class="list2">
 			    <display:column title="Property" sortable="true">
 <!-- 				<a class="delete" href="ship-detail?shipId=${resulttable.shipId}" ><img title="Order detail" src="images/info.png" height="15px" width="15px"/></a> -->
-				<a class="delete" href="order-received?id=${resulttable.shipId}" ><img title="Receipt" src="images/order.png" height="15px" width="15px"/></a>
+				<a href="order-received?id=${resulttable.shipId}" ><img title="Receipt" src="images/order.png" height="15px" width="15px"/></a>
 			    	<a class="delete" href="ship-del?shipId=${resulttable.shipId}" onclick="return confirm_delete()"><img title="Delete" src="images/del.png" height="15px" width="15px"/></a>
 			    </display:column>
 			    <display:column property="customer.name" title="Bill Name" sortable="true" />
@@ -63,7 +80,7 @@
 			    	<fmt:formatNumber groupingUsed="true">${resulttable.total}</fmt:formatNumber>
 			    </display:column>
 			    <display:column title="Status" sortable="true" >
-			    	<a href="ship-update-status?shipId=${resulttable.shipId}&status=${resulttable.status}">
+			    	<a class="payment" href="ship-update-status?shipId=${resulttable.shipId}&status=${resulttable.status}">
 			    		<c:choose>
 				    		<c:when test="${resulttable.status eq 0}">
 				    			<font color="red"><strong>UNPAID</strong></font>
