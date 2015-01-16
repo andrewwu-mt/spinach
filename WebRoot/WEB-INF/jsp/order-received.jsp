@@ -157,9 +157,7 @@
         <address>
           <p>
             ${ship.customer.address}<br>
-            <s:if test="%{ship.customer.address2 != null && ship.customer.address2 != ''}">
-            	${ship.customer.address2}<br>
-            </s:if>
+           	${ship.customer.address2}<br>
             ${ship.customer.post}<br>
             ${ship.customer.kabupaten.name}<br>
             Indonesia
@@ -173,9 +171,7 @@
         <address>
           <p>
             ${ship.shipAddress}<br>
-            <s:if test="%{ship.shipAddress2 != null && ship.shipAddress2 != ''}">
-            	${ship.shipAddress2}<br>
-            </s:if>
+           	${ship.shipAddress2}<br>
             ${ship.shipPost}<br>
             ${ship.shipKabupaten.name}<br>
             Indonesia

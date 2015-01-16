@@ -173,6 +173,9 @@
 		<property name="kabupatenDAO">
 			<ref bean="KabupatenDAO" />
 		</property>
+		<property name="paymentMethodDAO">
+			<ref bean="PaymentMethodDAO" />
+		</property>
 	</bean>
 	
    </beans>

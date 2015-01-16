@@ -13,6 +13,7 @@ import com.spinach.dao.AdminDAO;
 import com.spinach.dao.CustomerDAO;
 import com.spinach.dao.KabupatenDAO;
 import com.spinach.dao.OrderDAO;
+import com.spinach.dao.PaymentMethodDAO;
 import com.spinach.dao.ProductDAO;
 import com.spinach.dao.ShipDAO;
 import com.spinach.dao.StockDAO;
@@ -20,6 +21,7 @@ import com.spinach.dbo.Admin;
 import com.spinach.dbo.Customer;
 import com.spinach.dbo.Kabupaten;
 import com.spinach.dbo.Order;
+import com.spinach.dbo.PaymentMethod;
 import com.spinach.dbo.Product;
 import com.spinach.dbo.Ship;
 import com.spinach.dbo.Stock;
@@ -56,6 +58,7 @@ public class AdminAction extends ActionSupport {
 	
 
 	private KabupatenDAO kabupatenDAO;
+	private PaymentMethodDAO paymentMethodDAO;
 	
 	private String last;
 	private String email;
@@ -70,6 +73,14 @@ public class AdminAction extends ActionSupport {
 	
 	private String oldPwd;
 	private String newPwd;
+	
+	private Integer paymentMethodId;
+	private String shipAddress;
+	private String shipAddress2;
+	private String shipPhone;
+	private Integer subtotal;
+	private Integer fee;
+	private Integer total;
 	
 	public String execute(){
 		return SUCCESS;
@@ -197,7 +208,7 @@ public class AdminAction extends ActionSupport {
 	//========================================================================
 	
 
-	//Stock Records
+	//Order Records
 	public String getShipDetailRecord(){
 		orderList = orderDAO.findByProperty("ship.shipId", shipId);
 		return SUCCESS;
@@ -208,6 +219,33 @@ public class AdminAction extends ActionSupport {
 	
 	
 	//Ship Records
+	public String getShipRecord(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Ship ship = shipDAO.findById(shipId);
+		request.setAttribute("ship", ship);
+		
+		return SUCCESS;
+	}
+	
+	public String updateShipRecord(){
+		Ship ship = shipDAO.findById(shipId);
+		Kabupaten shipKabupaten = kabupatenDAO.findById(kabupatenId);
+		PaymentMethod paymentMethod = paymentMethodDAO.findById(paymentMethodId);
+		
+		ship.setShipAddress(shipAddress);
+		ship.setShipAddress2(shipAddress2);
+		ship.setShipKabupaten(shipKabupaten);
+		ship.setShipPhone(shipPhone);
+		ship.setSubtotal(subtotal);
+		ship.setFee(fee);
+		ship.setTotal(total);
+		ship.setStatus(status);
+		ship.setPaymentMethod(paymentMethod);
+		shipDAO.update(ship);
+		
+		return SUCCESS;
+	}
+	
 	public String getShipListRecord(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		List<Ship> shipList = shipDAO.findByMonth(month, year);
@@ -554,6 +592,70 @@ public class AdminAction extends ActionSupport {
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public PaymentMethodDAO getPaymentMethodDAO() {
+		return paymentMethodDAO;
+	}
+
+	public void setPaymentMethodDAO(PaymentMethodDAO paymentMethodDAO) {
+		this.paymentMethodDAO = paymentMethodDAO;
+	}
+
+	public Integer getPaymentMethodId() {
+		return paymentMethodId;
+	}
+
+	public void setPaymentMethodId(Integer paymentMethodId) {
+		this.paymentMethodId = paymentMethodId;
+	}
+
+	public String getShipAddress() {
+		return shipAddress;
+	}
+
+	public void setShipAddress(String shipAddress) {
+		this.shipAddress = shipAddress;
+	}
+
+	public String getShipAddress2() {
+		return shipAddress2;
+	}
+
+	public void setShipAddress2(String shipAddress2) {
+		this.shipAddress2 = shipAddress2;
+	}
+
+	public String getShipPhone() {
+		return shipPhone;
+	}
+
+	public void setShipPhone(String shipPhone) {
+		this.shipPhone = shipPhone;
+	}
+
+	public Integer getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(Integer subtotal) {
+		this.subtotal = subtotal;
+	}
+
+	public Integer getFee() {
+		return fee;
+	}
+
+	public void setFee(Integer fee) {
+		this.fee = fee;
+	}
+
+	public Integer getTotal() {
+		return total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
 	}
 
 }

@@ -47,9 +47,9 @@ $(document).ready(function(){
 			<br>
 			<display:table name="request.shipList" requestURI="ship-list" id="resulttable" pagesize="20" defaultsort="11" defaultorder="ascending" class="list2">
 			    <display:column title="Property" sortable="true">
-<!-- 				<a class="delete" href="ship-detail?shipId=${resulttable.shipId}" ><img title="Order detail" src="images/info.png" height="15px" width="15px"/></a> -->
-				<a href="order-received?id=${resulttable.shipId}" ><img title="Receipt" src="images/order.png" height="15px" width="15px"/></a>
-			    	<a class="delete" href="ship-del?shipId=${resulttable.shipId}" onclick="return confirm_delete()"><img title="Delete" src="images/del.png" height="15px" width="15px"/></a>
+					<a href="order-received?id=${resulttable.shipId}" ><img title="Receipt" src="images/order.png" height="15px" width="15px"/></a>
+	 				<a href="ship-edit?shipId=${resulttable.shipId}" ><img title="Edit ship" src="images/info.png" height="15px" width="15px"/></a>
+				    <a class="delete" href="ship-del?shipId=${resulttable.shipId}" onclick="return confirm_delete()"><img title="Delete" src="images/del.png" height="15px" width="15px"/></a>
 			    </display:column>
 			    <display:column property="customer.name" title="Bill Name" sortable="true" />
 			    <display:column property="shipName" title="Ship Name" sortable="true"  />

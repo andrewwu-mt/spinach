@@ -232,7 +232,19 @@
 			<interceptor-ref name="defaultStack"/>
 				<result name="successdelete" type="result-message">${#request.path}</result>
 		</action>
+		
 		<action name="ship-all" class="AdminAction" method="getShipListRecord" />
+		<action name="ship-edit" class="AdminAction" method="getShipRecord" >
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="success">/WEB-INF/jsp/ship-edit.jsp</result>
+		</action>
+		
+		<action name="ship-update" class="AdminAction" method="updateShipRecord">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+				<result name="success" type="result-message">ship-list</result>
+		</action>
 		<!-- Admin Action End -->
 		
 		<!-- Provinsi Action -->
