@@ -47,16 +47,16 @@
     <br>
   	Nama:
     <br>
-  	${request.ship.customer.name} ${request.ship.customer.last}
+  	${request.ship.shipName} ${request.ship.shipLast}
     <br>
     <br>
   	Alamat:
     <br>
-    ${ship.customer.address}<br>
-    ${ship.customer.address2}<br>
+    ${ship.shipAddress}<br>
+    ${ship.shipAddress2}<br>
     <br>
     <br>
-    Hp. ${ship.customer.phone}
+    Hp. ${ship.shipPhone}
   
   </div>
 </div>
