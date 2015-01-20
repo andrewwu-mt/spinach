@@ -46,11 +46,8 @@ $(document).ready(function(){
 			<br>
 			<br>
 			<display:table name="request.shipList" requestURI="ship-list" id="resulttable" pagesize="20" defaultsort="11" defaultorder="ascending" class="list2">
-			    <display:column title="Property" sortable="true">
-					<a href="order-received?id=${resulttable.shipId}" ><img title="Receipt" src="images/order.png" height="15px" width="15px"/></a>
-	 				<a href="ship-edit?shipId=${resulttable.shipId}" ><img title="Edit ship" src="images/info.png" height="15px" width="15px"/></a>
-				    <a class="delete" href="ship-del?shipId=${resulttable.shipId}" onclick="return confirm_delete()"><img title="Delete" src="images/del.png" height="15px" width="15px"/></a>
-			    </display:column>
+			    <display:column property="insertDate"  title="Date" sortable="true" format="{0,date,dd MMM yyyy}" />
+			    <display:column property="insertDate"  title="Time" sortable="true" format="{0,date,HH:mm}" />
 			    <display:column property="customer.name" title="Bill Name" sortable="true" />
 			    <display:column property="shipName" title="Ship Name" sortable="true"  />
 			    <display:column title="Ship Address" sortable="true" >
@@ -91,8 +88,13 @@ $(document).ready(function(){
 						</c:choose>
 	               	</a>
 			    </display:column>
-			    <display:column property="insertDate"  title="Date" sortable="true" format="{0,date,dd MMM yyyy}" />
-			    <display:column property="insertDate"  title="Time" sortable="true" format="{0,date,HH:mm}" />
+			    <display:column title="Management" sortable="false">
+	 				<a href="ship-edit?shipId=${resulttable.shipId}" >Edit</a>
+	 				 | 
+					<a href="order-line?id=${resulttable.shipId}" >Review</a>
+					 | 
+				    <a class="delete" href="ship-del?shipId=${resulttable.shipId}" onclick="return confirm_delete()">Delete</a>
+			    </display:column>
 			</display:table>
 		</s:form>
 		

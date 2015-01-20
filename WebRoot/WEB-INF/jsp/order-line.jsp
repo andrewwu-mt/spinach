@@ -45,6 +45,13 @@
     Order Total - IDR <fmt:formatNumber groupingUsed="true">${request.ship.total}</fmt:formatNumber>
     <br>
     <br>
+    <s:if test="%{#request.ship.customer.name != #request.ship.shipName}">
+	  	Reseller:
+	    <br>
+	  	${request.ship.customer.name} ${request.ship.customer.last}
+	    <br>
+	    <br>
+    </s:if>
   	Nama:
     <br>
   	${request.ship.shipName} ${request.ship.shipLast}
