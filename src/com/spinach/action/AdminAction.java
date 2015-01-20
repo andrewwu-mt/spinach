@@ -246,7 +246,7 @@ public class AdminAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	public String getShipListRecord(){
+	public String allShipRecords(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		List<Ship> shipList = shipDAO.findByMonth(month, year);
 		Long subtotal = shipDAO.findPrice(month, year, "subtotal");
@@ -297,7 +297,7 @@ public class AdminAction extends ActionSupport {
 		return "successdelete";
 	}
 	
-	public String updateStatus(){
+	public String updateShipStatus(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.setAttribute("path", path);
 		

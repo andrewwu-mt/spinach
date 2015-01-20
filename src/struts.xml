@@ -222,7 +222,7 @@
 			<result name="input">WEB-INF/jsp/admin.jsp</result>
 			<result name="success">WEB-INF/jsp/ship-detail.jsp</result>
 		</action>
-		<action name="ship-update-status" class="AdminAction" method="updateStatus">
+		<action name="ship-update-status" class="AdminAction" method="updateShipStatus">
 			<interceptor-ref name="checkAdmin"/>
 			<interceptor-ref name="defaultStack"/>
 				<result name="success" type="result-message">${#request.path}</result>
@@ -233,7 +233,7 @@
 				<result name="successdelete" type="result-message">${#request.path}</result>
 		</action>
 		
-		<action name="ship-all" class="AdminAction" method="getShipListRecord" />
+		<action name="ship-all" class="AdminAction" method="allShipRecords" />
 		<action name="ship-edit" class="AdminAction" method="getShipRecord" >
 			<interceptor-ref name="checkAdmin"/>
 			<interceptor-ref name="defaultStack"/>

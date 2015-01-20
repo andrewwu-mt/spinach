@@ -45,7 +45,7 @@ $(document).ready(function(){
 			<button class="submit">Search</button>
 			<br>
 			<br>
-			<display:table name="request.shipList" requestURI="ship-list" id="resulttable" pagesize="20" defaultsort="11" defaultorder="ascending" class="list2">
+			<display:table name="request.shipList" requestURI="ship-list" id="resulttable" pagesize="20" class="list2">
 			    <display:column property="insertDate"  title="Date" sortable="true" format="{0,date,dd MMM yyyy}" />
 			    <display:column property="insertDate"  title="Time" sortable="true" format="{0,date,HH:mm}" />
 			    <display:column property="customer.name" title="Bill Name" sortable="true" />
