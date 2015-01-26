@@ -39,7 +39,7 @@ $(document).ready(function(){
 		<br>
 		
 		<s:form action="ship-list" method="get" theme="simple">
-			<s:select name="year" list="#{2014 : 2014, 2015:2015, 2016:2016}" value="%{#request.year}" />
+			<s:select name="year" list="#{2015:2015, 2014:2014}" value="%{#request.year}" />
 			<s:select name="month" list="#{'0':'All', '1':'January', '2':'Febuary', '3':'March', '4':'April', '5':'May', '6':'June', '7':'July', '8':'August', '9':'September', '10':'October', '11':'November', '12':'December'}" value="%{#request.month}" /><br/>
 			<br>
 			<button class="submit">Search</button>

@@ -144,7 +144,7 @@ public class ShipDAO extends HibernateDaoSupport {
 			if(year != null){
 				str += "where date_format(model.insertDate, '%Y') = "+year+" ";
 			} else {
-				str += "where date_format(model.insertDate, '%Y') = 2014 ";
+				str += "where date_format(model.insertDate, '%Y') = 2015 ";
 			}
 			
 			if(month != null && month != 0){
