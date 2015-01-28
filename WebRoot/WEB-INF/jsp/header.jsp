@@ -46,7 +46,7 @@
 	    	var element=document.createElement("script");
 	    	element.src="js/main.js";
 	    	document.body.appendChild(element);
-	    	(function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '30e7da0c-1e8a-446f-8ff3-17c0d9936287', f: true }); done = true; } }; })();
+	    	(function () { var done = false;var script = document.createElement('script');script.async = true;script.type = 'text/javascript';script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';document.getElementsByTagName('HEAD').item(0).appendChild(script);script.onreadystatechange = script.onload = function (e) {if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {var w = new PCWidget({ c: '5ef0bbee-ef49-4d46-b8b3-7e84d26327b9', f: true });done = true;}};})();
 	   	}
 		
 		if(window.addEventListener)
@@ -54,6 +54,9 @@
 		else if(window.attachEvent)
 		window.attachEvent("onload",downloadJSAtOnload);
 		else window.onload=downloadJSAtOnload;
+		
+		
+		
 	</script>
 	
   </head>
