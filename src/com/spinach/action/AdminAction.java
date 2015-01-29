@@ -1,6 +1,8 @@
 package com.spinach.action;
 
 import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -247,6 +249,11 @@ public class AdminAction extends ActionSupport {
 	}
 	
 	public String allShipRecords(){
+		if(year == null) {
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(new Date());
+			year = cal.get(Calendar.YEAR);
+		}
 		HttpServletRequest request = ServletActionContext.getRequest();
 		List<Ship> shipList = shipDAO.findByMonth(month, year);
 		Long subtotal = shipDAO.findPrice(month, year, "subtotal");
