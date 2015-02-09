@@ -24,7 +24,7 @@ public class Product implements java.io.Serializable {
 	private String src;
 	private Category category;
 	private String shortName;
-	private String desc;
+	private String aboutProduct;
 	private Set stocks = new HashSet(0);
 	private Set orders = new HashSet(0);
 
@@ -38,7 +38,7 @@ public class Product implements java.io.Serializable {
 	public Product(Type type, String name, String description,
 			Integer priceBox, Integer priceBottle, Timestamp insertDate,
 			Timestamp updateDate, Integer active, String src, Set stocks,
-			Set orders, Category category, String shortName, String desc) {
+			Set orders, Category category, String shortName, String aboutProduct) {
 		this.type = type;
 		this.name = name;
 		this.description = description;
@@ -52,21 +52,13 @@ public class Product implements java.io.Serializable {
 		this.orders = orders;
 		this.category = category;
 		this.shortName = shortName;
-		this.desc = desc;
+		this.aboutProduct = aboutProduct;
 	}
 
 	// Property accessors
 
 	public Integer getProductId() {
 		return this.productId;
-	}
-
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
 	}
 
 	public String getShortName() {
@@ -83,6 +75,14 @@ public class Product implements java.io.Serializable {
 
 	public Type getType() {
 		return this.type;
+	}
+
+	public String getAboutProduct() {
+		return aboutProduct;
+	}
+
+	public void setAboutProduct(String aboutProduct) {
+		this.aboutProduct = aboutProduct;
 	}
 
 	public void setType(Type type) {

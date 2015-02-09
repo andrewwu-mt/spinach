@@ -68,6 +68,9 @@
 		<property name="stockDAO">
 			<ref bean="StockDAO" />
 		</property>
+		<property name="categoryDAO">
+			<ref bean="CategoryDAO" />
+		</property>
 	</bean>
 	
 	<bean id="CartAction" class="com.spinach.action.CartAction" scope="prototype">

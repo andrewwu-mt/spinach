@@ -132,7 +132,7 @@
 				    	crt&nbsp;<span class="products__price">IDR&nbsp;<fmt:formatNumber groupingUsed="true">${priceBox}</fmt:formatNumber></span><br><br>
 				    </div>
 				    <p>
-				    ${desc}
+				    ${aboutProduct}
 				    </p>
 				  </div>
 			  </div>

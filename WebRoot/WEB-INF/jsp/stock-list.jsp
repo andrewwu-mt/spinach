@@ -28,6 +28,7 @@ $(document).ready(function(){
 					<br>
 					<input id="btn" type="button" value="Update" class="submit-rounded"/>
 					<br>
+					<a href="product-add">Add product</a>
 					<br>
 					<hr>
 					<br>
@@ -40,7 +41,7 @@ $(document).ready(function(){
 				
 				<s:iterator value="stockList">
 						<tr>
-			                <td><s:property value="%{product.name}" /></td>
+			                <td><a href="product-edit?id=${product.productId}"><s:property value="%{product.name}" /></a></td>
 			                <td><s:property value="%{number}" /></td>
 			                <td><s:textfield name="numbers" /></td>
 		                </tr>

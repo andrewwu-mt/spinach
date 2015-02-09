@@ -40,8 +40,8 @@
         <property name="src" type="java.lang.String">
             <column name="src" length="100" />
         </property>
-        <property name="desc" type="java.lang.String">
-        	<column name="desc" />
+        <property name="aboutProduct" type="java.lang.String">
+        	<column name="about_product" length="500" />
         </property>
         <many-to-one name="category" class="com.spinach.dbo.Category" fetch="select" lazy="false">
             <column name="category_id" not-null="true" />

@@ -41,6 +41,7 @@ public class ProductDAO extends HibernateDaoSupport {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
 		} catch (RuntimeException re) {
+			re.printStackTrace();
 			log.error("save failed", re);
 			throw re;
 		}
@@ -52,6 +53,7 @@ public class ProductDAO extends HibernateDaoSupport {
 			getHibernateTemplate().update(transientInstance);
 			log.debug("save successful");
 		} catch (RuntimeException re) {
+			re.printStackTrace();
 			log.error("save failed", re);
 			throw re;
 		}

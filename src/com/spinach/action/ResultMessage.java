@@ -70,11 +70,20 @@ public class ResultMessage extends StrutsResultSupport  {
 		if(invocation.getResultCode().equalsIgnoreCase(ActionSupport.SUCCESS)) {
 			message = "Update success";
 		}
+        else if(invocation.getResultCode().equalsIgnoreCase("updateerror")) {
+        	message = "Cannot be updated";
+		}
 		else if(invocation.getResultCode().equalsIgnoreCase("successsave")) {
 			message = "Add success";
 		}
+        else if(invocation.getResultCode().equalsIgnoreCase("saveerror")) {
+        	message = "Cannot be saved";
+		}
         else if(invocation.getResultCode().equalsIgnoreCase("successdelete")) {
 			message = "Delete success";
+		}
+        else if(invocation.getResultCode().equalsIgnoreCase("deleteerror")) {
+        	message = "Cannot be deleted";
 		}
         else if(invocation.getResultCode().equalsIgnoreCase("uneditable")) {
         	message = "View only record";

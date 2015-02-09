@@ -3,6 +3,8 @@
 <struts>
 
 	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.multipart.maxSize" value="9999999999" />
+	
     <package name="default" namespace="/" extends="struts-default, json-default">  
 		<result-types>  
 			<result-type name="result-message" class="ResultMessage" />  
@@ -91,6 +93,40 @@
 		<!-- Json End -->
 		
 		<!-- Product Action -->
+		
+		<action name="product-edit" class="IndexAction">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+        	<result name="success">/WEB-INF/jsp/product-edit.jsp</result>
+		</action>	
+		<action name="product-add" class="IndexAction">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+        	<result name="success">/WEB-INF/jsp/product-add.jsp</result>
+		</action>		
+		
+        <action name="product-save" class="ProductAction" method="saveRecord">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+        	<result name="saveerror" type="result-message">product-add</result>
+        	<result name="successsave"  type="result-message">stock-list</result>
+		</action>
+		
+        <action name="product-update" class="ProductAction" method="updateRecord">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+        	<result name="updateerror" type="result-message">product-edit?id=${#request.productId}</result>
+        	<result name="success"  type="result-message">stock-list</result>
+		</action>
+		
+        <action name="product-delete" class="ProductAction" method="saveRecord">
+			<interceptor-ref name="checkAdmin"/>
+			<interceptor-ref name="defaultStack"/>
+        	<result name="deleteerror" type="result-message">stock-list</result>
+        	<result name="successdelete"  type="result-message">stock-list</result>
+		</action>
+		
+		
 		<action name="product-home" class="ProductAction" method="homeRecords"/>
 		<action name="product-all" class="ProductAction" method="allRecords"/>
 		<action name="product-get" class="ProductAction" method="getRecord"/>

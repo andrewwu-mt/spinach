@@ -164,7 +164,7 @@ $(document).ready(function(){
 <div class="tab-content">
   <div class="tab-pane  fade  in  active" id="tabDesc">
     <h5></h5>
-    <p class="tab-text">${request.product.desc}</p>
+    <p class="tab-text">${request.product.aboutProduct}</p>
   </div>
 </div>
 
