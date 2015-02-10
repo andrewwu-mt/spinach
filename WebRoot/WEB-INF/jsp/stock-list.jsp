@@ -37,6 +37,7 @@ $(document).ready(function(){
 					<th>Item name</th>
 					<th>Stock</th>
 					<th>Modify Stock</th>
+					<th>Status</th>
 				</tr>
 				
 				<s:iterator value="stockList">
@@ -44,6 +45,14 @@ $(document).ready(function(){
 			                <td><a href="product-edit?id=${product.productId}"><s:property value="%{product.name}" /></a></td>
 			                <td><s:property value="%{number}" /></td>
 			                <td><s:textfield name="numbers" /></td>
+			                <td>
+			                	<s:if test="%{product.active == 1}">
+			                		<font color="green"><strong>Active</strong></font>
+			                	</s:if>
+			                	<s:else>
+			                		<font color="red"><strong>Inactive</strong></font>
+			                	</s:else>
+			                </td>
 		                </tr>
 				</s:iterator>
 		</s:form>
