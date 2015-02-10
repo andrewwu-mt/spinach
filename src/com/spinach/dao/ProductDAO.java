@@ -114,7 +114,7 @@ public class ProductDAO extends HibernateDaoSupport {
 				+ ", value: " + value);
 		try {
 			String queryString = "from Product as model where model."
-					+ propertyName + " like '%"+ value + "%'";
+					+ propertyName + " like '%"+ value + "%' and model.active = 1";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
@@ -146,7 +146,7 @@ public class ProductDAO extends HibernateDaoSupport {
 	public List findAll() {
 		log.debug("finding all Product instances");
 		try {
-			String queryString = "from Product as model left join fetch model.type as t order by model.name asc";
+			String queryString = "from Product as model left join fetch model.type as t where model.active = 1 order by model.name asc";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
