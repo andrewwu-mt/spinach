@@ -17,7 +17,7 @@
 	<script src="js/spin.js"></script>
 	<script src="js/platform-checker.js"></script>
 
-    <title>Spinach Store Indonesia | Jual Miras | Spirits & Wine</title>
+    <title>Spinach Store Liquor Indonesia | Jual Miras | Spirits & Wine</title>
     <meta name="description" content="Online shop Indonesia spesial menjual berbagai macam liquor seperti wine, spirits dan beer. Kami juga menyediakan jasa pengiriman untuk seluruh Indonesia." />    
     <meta name="keywords" content="Online shop Indonesia spesial menjual berbagai macam liquor seperti wine, spirits dan beer. Kami juga menyediakan jasa pengiriman untuk seluruh Indonesia. Jual Miras." />   
     <meta name="generator" content="PrestaShop" />
