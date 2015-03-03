@@ -9,6 +9,16 @@
 <link rel="icon" type="image/ico" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png">
 <body>
 <jsp:include page="header.jsp" />
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <s:action name="product-home" executeResult="false"/> 
 <s:action name="best-seller-all" executeResult="false"/> 
 <s:action name="top-rated-all" executeResult="false"/> 
@@ -249,7 +259,7 @@
       <div class="widgets__heading--line">
         <h4 class="widgets__heading">Related Website</h4>
       </div>
-      <a href="http://www.polidhouse.com" target="_blank"><img class="product__image" src="images/polidhouse.png" width="10" height="10"></a>
+	  <div class="fb-like-box" data-href="https://www.facebook.com/spinachstoreindonesia" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
     </div>
   </div>
 </div>
