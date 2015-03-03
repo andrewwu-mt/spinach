@@ -17,7 +17,12 @@
 	<script src="js/spin.js"></script>
 	<script src="js/platform-checker.js"></script>
 
-    <title>Spinach Store | Jual Miras | Spirits & Wine</title>
+    <title>Spinach Store Indonesia | Jual Miras | Spirits & Wine</title>
+    <meta name="description" content="Online shop Indonesia spesial menjual berbagai macam liquor seperti wine, spirits dan beer. Kami juga menyediakan jasa pengiriman untuk seluruh Indonesia." />    
+    <meta name="keywords" content="Online shop Indonesia spesial menjual berbagai macam liquor seperti wine, spirits dan beer. Kami juga menyediakan jasa pengiriman untuk seluruh Indonesia. Jual Miras." />   
+    <meta name="generator" content="PrestaShop" />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Andrew Gotama">
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="stylesheets/A.b9575786.main.css.pagespeed.cf.KV29qTgDkf.css"/>
