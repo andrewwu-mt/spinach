@@ -11,7 +11,7 @@
 <script src="js/product-calculate.js" type="text/javascript"></script>
 
 <head>
-	<title>Spinach Store Liquor Indonesia | ${request.product.name}</title>
+	<title>${request.product.name}</title>
 </head>
 <jsp:include page="header.jsp" />
 

@@ -8,8 +8,6 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Online shop Indonesia spesial menjual berbagai macam liquor seperti wine, spirits dan beer. Kami juga menyediakan jasa pengiriman untuk seluruh Indonesia." />    
-    <meta name="keywords" content="jual miras liquor indonesia jakarta wine spirits beer" />   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="SpinachStore" />
     <meta name="robots" content="index,follow" />

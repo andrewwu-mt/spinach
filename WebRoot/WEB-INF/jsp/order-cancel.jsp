@@ -10,7 +10,7 @@
 <link rel="icon" type="image/ico" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png">
 
 <head>
-	<title>Spinach Store Liquor Indonesia | Order Cancel</title>
+	<title>Order Cancel</title>
 </head>
 
 <jsp:include page="header.jsp" />

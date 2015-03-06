@@ -11,6 +11,8 @@
 
 <head>
 	<title>Spinach Store Liquor Indonesia | Jual Miras</title>
+	<meta name="description" content="Online shop Indonesia spesial menjual berbagai macam liquor seperti wine, spirits dan beer. Kami juga menyediakan jasa pengiriman untuk seluruh Indonesia." />    
+    <meta name="keywords" content="jual miras liquor indonesia jakarta wine spirits beer" />  
 </head>
 
 <jsp:include page="header.jsp" />
