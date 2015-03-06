@@ -8,7 +8,6 @@
 <html lang="en">
   
 <link rel="icon" type="image/ico" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png">
-<script src="js/product-calculate.js" type="text/javascript"></script>
 
 <s:action name="product-get" executeResult="false">
 	<s:param name="productId" value="#parameters.id" /> 
@@ -34,6 +33,7 @@ $(document).ready(function(){
 });
 </script>
 
+<script src="js/product-calculate.js" type="text/javascript"></script>
 
 <div class="breadcrumbs">
   <div class="container">
