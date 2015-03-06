@@ -8,8 +8,13 @@
 <html lang="en">
   
 <link rel="icon" type="image/ico" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png">
-<body>
+
+<head>
+	<title>Spinach Store Liquor Indonesia | Order Cancel</title>
+</head>
+
 <jsp:include page="header.jsp" />
+<body>
 
 <s:action name="payment-cancel" executeResult="false">
 	<s:param name="shipId" value="#parameters.id" />

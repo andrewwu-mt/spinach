@@ -8,9 +8,19 @@
 <html lang="en">
   
 <link rel="icon" type="image/ico" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png">
-<body>
-<jsp:include page="header.jsp" />
 <script src="js/product-calculate.js" type="text/javascript"></script>
+
+<head>
+	<title>Spinach Store Liquor Indonesia | ${request.product.name}</title>
+</head>
+<jsp:include page="header.jsp" />
+
+<body>
+<s:action name="product-get" executeResult="false">
+	<s:param name="productId" value="#parameters.id" /> 
+</s:action>
+<s:action name="type-all" executeResult="false" />
+
 <script>
 $(document).ready(function(){
 	var url = location.href;
@@ -22,10 +32,7 @@ $(document).ready(function(){
 	
 });
 </script>
-<s:action name="product-get" executeResult="false">
-	<s:param name="productId" value="#parameters.id" /> 
-</s:action>
-<s:action name="type-all" executeResult="false" />
+
 
 <div class="breadcrumbs">
   <div class="container">

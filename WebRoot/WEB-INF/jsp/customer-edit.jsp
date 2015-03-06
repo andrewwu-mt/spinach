@@ -8,8 +8,13 @@
 <html lang="en">
   
 <link rel="icon" type="image/ico" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png">
-<body>
+
+<head>
+	<title>Spinach Store Liquor Indonesia | Edit Account Detail</title>
+</head>
+
 <jsp:include page="header.jsp" />
+<body>
 <script src="js/form-check.js" type="text/javascript"></script>
 <script>
 $(document).ready(function(){

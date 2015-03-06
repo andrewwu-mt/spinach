@@ -8,21 +8,17 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
-    
+    <meta name="description" content="Online shop Indonesia spesial menjual berbagai macam liquor seperti wine, spirits dan beer. Kami juga menyediakan jasa pengiriman untuk seluruh Indonesia." />    
+    <meta name="keywords" content="jual miras liquor indonesia jakarta wine spirits beer" />   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Andrew Wu">
+    <meta name="generator" content="SpinachStore" />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Andrew Gotama">
+    
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/list-add.js"></script>
 	<script src="js/spin.js"></script>
 	<script src="js/platform-checker.js"></script>
-
-    <title>Spinach Store Liquor Indonesia | Jual Miras | Spirits & Wine</title>
-    <meta name="description" content="Online shop Indonesia spesial menjual berbagai macam liquor seperti wine, spirits dan beer. Kami juga menyediakan jasa pengiriman untuk seluruh Indonesia." />    
-    <meta name="keywords" content="Online shop Indonesia spesial menjual berbagai macam liquor seperti wine, spirits dan beer. Kami juga menyediakan jasa pengiriman untuk seluruh Indonesia. Jual Miras." />   
-    <meta name="generator" content="PrestaShop" />
-    <meta name="robots" content="index,follow" />
-    <meta name="author" content="Andrew Gotama">
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="stylesheets/A.b9575786.main.css.pagespeed.cf.KV29qTgDkf.css"/>

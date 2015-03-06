@@ -46,7 +46,7 @@
                 Tangerang, Indonesia<br>
                 <a class="footer__link--small" href="contact">View Google map <span class="glyphicon glyphicon-chevron-right glyphicon--footer-small"></span></a><br><br>
                 <a class="footer__link" href="#"><span class="glyphicon glyphicon-earphone glyphicon--footer"></span>&nbsp;+62 813 1547 6688 </a><br>	
-                <a class="footer__link" href="#"><img src="images/icon-blackberry.png">&nbsp;215F596A </a><br>
+                <a class="footer__link" href="#"><img alt="#" src="images/icon-blackberry.png">&nbsp;215F596A </a><br>
                 <a class="footer__link" href="#"><span class="glyphicon glyphicon-phone glyphicon--footer"></span>&nbsp;andrewgotama&nbsp;(LINE)</a><br>
                 <a class="footer__link" href="http://www.gmail.com" target="_blank"><span class="glyphicon glyphicon-envelope glyphicon--footer"></span>&nbsp;spinachstore@gmail.com</a><br>
               </div>

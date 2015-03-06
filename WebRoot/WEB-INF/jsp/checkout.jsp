@@ -8,8 +8,13 @@
 <html lang="en">
   
 <link rel="icon" type="image/ico" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png">
-<body>
+<head>
+	<title>Spinach Store Liquor Indonesia | Checkout</title>
+</head>
 <jsp:include page="header.jsp" />
+
+
+<body>
 <script src="js/form-check.js" type="text/javascript"></script>
 
 <s:action name="ship-type-all" executeResult="false" />

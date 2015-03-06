@@ -35,7 +35,7 @@ $(document).ready(function(){
 		    <display:column property="last" title="Last Name" sortable="true"  />
 		    <display:column property="insertDate" title="Date" sortable="true" format="{0,date,MM/dd/yyyy HH:mm:ss}" />
 		    <display:column title="Manage" sortable="false">
-		    	<a class="delete" href="user-delete?customerId=${resulttable.customerId}" onclick="return confirm_delete()"><img title="Delete" src="images/del.png" height="15px" width="15px"/></a>
+		    	<a class="delete" href="user-delete?customerId=${resulttable.customerId}" onclick="return confirm_delete()"><img alt="#" title="Delete" src="images/del.png" height="15px" width="15px"/></a>
 		    </display:column>
 		</display:table>
 	</div>  

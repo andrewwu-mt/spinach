@@ -8,8 +8,15 @@
 <html lang="en">
   
 <link rel="icon" type="image/ico" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png">
-<body>
+
+<head>
+	<title>Spinach Store Liquor Indonesia | Cart List</title>
+</head>
 <jsp:include page="header.jsp" />
+
+
+<body>
+
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#apply").click(function(){
@@ -73,7 +80,7 @@ $(document).ready(function(){
           	<s:iterator value="#request.cartList">
 	            <tr class="cart_table_item">
 	              <td class="product-remove"><span class="deleteItemCartList glyphicon  glyphicon-remove"><s:hidden cssClass="prodId" value="%{key}"/></span></td>
-	              <td class="product-thumbnail"><img src="${value[5]}" width="50" height="50"></td>
+	              <td class="product-thumbnail"><img alt="#" src="${value[5]}" width="50" height="50"></td>
 	              <td class="product-name"><a href="product-detail?id=${key}">${value[0]}</a></td>
 	              <td class="product-price">IDR&nbsp;<fmt:formatNumber groupingUsed="true">${value[4]}</fmt:formatNumber></td>
 	              <td class="product-type">

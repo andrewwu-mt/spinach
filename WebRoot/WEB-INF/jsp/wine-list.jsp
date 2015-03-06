@@ -8,8 +8,13 @@
 <html lang="en">
   
 <link rel="icon" type="image/ico" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png">
-<body>
+
+<head>
+	<title>Spinach Store Liquor Indonesia | Wines List</title>
+</head>
+
 <jsp:include page="header.jsp" />
+<body>
 <s:action name="category-all" executeResult="false" />
 <s:action name="product-all" executeResult="false"/>
 
