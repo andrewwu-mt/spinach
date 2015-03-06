@@ -6,8 +6,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  
-<link rel="icon" type="image/ico" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png">
+	<link rel="icon" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png" type="image/x-icon" />
+	<link rel="shortcut icon" href="images/favicon.png.pagespeed.ce.jZBcI7cfio.png" type="image/x-icon" />
 <body>
 <jsp:include page="header.jsp" />
 
