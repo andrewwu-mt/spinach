@@ -4,14 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="SpinachStore" />
-    <meta name="robots" content="index,follow" />
-    <meta name="author" content="Andrew Gotama">
-    
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/list-add.js"></script>
 	<script src="js/spin.js"></script>
@@ -57,8 +49,6 @@
 		
 	</script>
 	
-  </head>
-  
 <s:action name="cart-all" executeResult="false" />
 <s:action name="customer-get-session" executeResult="false" />
 

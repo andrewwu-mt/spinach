@@ -10,15 +10,17 @@
 
 
 <head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<title>Spinach Store Liquor Indonesia | Jual Miras</title>
 	<meta name="description" content="Online shop Indonesia spesial menjual berbagai macam liquor seperti wine, spirits dan beer. Kami juga menyediakan jasa pengiriman untuk seluruh Indonesia." />    
-    <meta name="keywords" content="jual miras liquor indonesia jakarta wine spirits beer" />  
-</head>
+    <meta name="keywords" content="jual, miras, liquor, indonesia, jakarta, wine, spirits, beer,spinach, spinachstore, store, online, shop, murah, harga, berkualitas" />  
+    <meta name="robots" content="INDEX,FOLLOW" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <jsp:include page="header.jsp" />
 <body>
 
-<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
