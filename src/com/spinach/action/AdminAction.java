@@ -268,7 +268,7 @@ public class AdminAction extends ActionSupport {
 		
 		request.setAttribute("shipList", shipList);
 		request.setAttribute("subtotal", subtotal);
-		request.setAttribute("fee", fee);
+		request.setAttribute("fee", fee+adminFee);
 		request.setAttribute("total", total);
 		request.setAttribute("month", month);
 		request.setAttribute("year", year);
