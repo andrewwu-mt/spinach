@@ -264,14 +264,12 @@
 	          </p>
 	        </div>
       	</div>
-   	 </div>	
-   	 
-      <div class="col-xs-12 col-sm-12">
-        <h3><span class="light">Tinggalkan</span> Pesan Anda</h3>
+      	
+      	<h3><span class="light">Tinggalkan</span> Pesan Anda</h3>
         <div class="row">
         	<div class="col-xs-12  col-sm-12  push-down-10">
 	          <p>
-	            <textarea name="comment" style="resize:none;width:550px;height:100px;" placeholder="Contoh: waktu penerimaan barang yang diinginkan, titik pertemuan, dll."></textarea>
+	            <textarea name="comment" style="resize:none;" class="input-text" placeholder="Contoh: waktu penerimaan barang yang diinginkan, titik pertemuan, dll."></textarea>
 	          </p>
 	        </div>
       	</div>
