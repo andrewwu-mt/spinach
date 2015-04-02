@@ -34,6 +34,7 @@
 				<s:textfield name="total" label="Total" value="%{#request.ship.total}" size="50" />
 				<s:select name="status" label="Status" list="#{'0':'UNPAID', '1':'PAID'}" value="%{#request.ship.status}" />
 				<s:select name="paymentMethodId" label="Payment Method" list="#{'1':'BCA', '2':'Credit Card', '3':'COD'}" value="%{#request.ship.paymentMethod.paymentMethodId}" />
+				<s:textarea name="comment" label="Pesan buyer" value="%{#request.ship.comment}" cssStyle="resize:none;width:550px;height:100px;" />
 				
 	 			<tr>
 	  		    	<td colspan="2" align="right"><div class="button-wrapper"><button class="submit">Submit</button></div></td>

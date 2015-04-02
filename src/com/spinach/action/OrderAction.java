@@ -131,7 +131,7 @@ public class OrderAction extends ActionSupport{
 			}
 			
 			
-			
+			ship.setComment(comment);
 			ship.setPaymentMethod(pm);
 			shipDAO.save(ship);
 			

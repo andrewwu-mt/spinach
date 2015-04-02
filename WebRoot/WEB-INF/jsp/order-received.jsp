@@ -146,6 +146,14 @@
         </s:iterator>
       </tbody>
     </table>
+    
+    <header class="title">
+      <h3><span class="light">Pesan</span> anda</h3>
+    </header>
+    <dl class="customer_details">
+      <s:textarea value="%{#request.ship.comment}" cssStyle="resize:none;width:550px;height:100px;" readonly="true" />
+    </dl>
+    
     <header class="title">
       <h3><span class="light">Customer</span> details</h3>
     </header>

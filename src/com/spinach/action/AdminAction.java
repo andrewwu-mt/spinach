@@ -43,6 +43,7 @@ public class AdminAction extends ActionSupport {
 	private CustomerDAO customerDAO;
 	private String path;
 	
+	private String comment;
 	private String name;
 	private String description;
 	private int priceBottle;
@@ -243,6 +244,7 @@ public class AdminAction extends ActionSupport {
 		ship.setTotal(total);
 		ship.setStatus(status);
 		ship.setPaymentMethod(paymentMethod);
+		ship.setComment(comment);
 		shipDAO.update(ship);
 		
 		return SUCCESS;
@@ -663,6 +665,14 @@ public class AdminAction extends ActionSupport {
 
 	public void setTotal(Integer total) {
 		this.total = total;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 }

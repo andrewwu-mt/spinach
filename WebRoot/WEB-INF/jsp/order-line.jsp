@@ -46,7 +46,10 @@
   	Order <s:date name="%{#request.ship.insertDate}" format="MMM dd, yyyy" /> - <s:if test="%{#request.ship.status == 0}">Belum Lunas</s:if><s:else>Lunas</s:else>
   	<br>
   	<br>
-  	Pesan:
+  	${request.ship.paymentMethod.name}
+  	<br>
+  	<br>
+  	Order:
   	<br>
   	<s:iterator value="#request.ship.orders" id="inner">
 	    ${inner.product.shortName} ${inner.amount} <s:if test="%{#inner.type == 1}">Bottle</s:if><s:else>Carton</s:else> IDR <fmt:formatNumber groupingUsed="true">${inner.price}</fmt:formatNumber><br>
@@ -76,6 +79,11 @@
     <br>
     <br>
     Hp. ${ship.shipPhone}
+    <br>
+    <br>
+    Pesan dari buyer:
+    <br>
+    ${ship.comment}
   
   </div>
 </div>
