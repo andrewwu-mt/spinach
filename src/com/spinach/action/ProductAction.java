@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FileUtils;
@@ -132,10 +131,10 @@ public class ProductAction extends ActionSupport{
 			Product product = new Product();
 			
 			if(fileUploadFileName != null){
-				File file = new File(path, name+".jpg");
+				File file = new File(path, name.replace(" ", "_")+".jpg");
 		        if(fileUploadFileName.contains(".jpg") || fileUploadFileName.contains(".jpeg")){
 		        	FileUtils.copyFile(fileUpload, file);
-					product.setSrc("products/" + name + ".jpg");
+					product.setSrc("products/" + name.replace(" ", "_") + ".jpg");
 		        }
 			}
 			
@@ -176,10 +175,10 @@ public class ProductAction extends ActionSupport{
 			Product product = productDAO.findById(productId);
 
 			if(fileUploadFileName != null){
-				File file = new File(path, name+".jpg");
+				File file = new File(path, name.replace(" ", "_")+".jpg");
 		        if(fileUploadFileName.contains(".jpg") || fileUploadFileName.contains(".jpeg")){
 		        	FileUtils.copyFile(fileUpload, file);
-					product.setSrc("products/" + name + ".jpg");
+					product.setSrc("products/" + name.replace(" ", "_") + ".jpg");
 		        }
 			}
 			
