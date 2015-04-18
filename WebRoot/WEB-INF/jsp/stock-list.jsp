@@ -35,6 +35,8 @@ $(document).ready(function(){
 				</caption>
 				<tr>
 					<th>Item name</th>
+					<th>Price/Bottle</th>
+					<th>Price/Carton</th>
 					<th>Stock</th>
 					<th>Modify Stock</th>
 					<th>Status</th>
@@ -44,6 +46,8 @@ $(document).ready(function(){
 						<tr>
 			                <td><a href="product-edit?id=${product.productId}"><s:property value="%{product.name}" /></a></td>
 			                <td><s:property value="%{number}" /></td>
+			                <td><fmt:formatNumber groupingUsed="true"><s:property value="%{product.priceBottle}" /></fmt:formatNumber></td>
+			                <td><fmt:formatNumber groupingUsed="true"><s:property value="%{product.priceBox}" /></fmt:formatNumber></td>
 			                <td><s:textfield name="numbers" /></td>
 			                <td>
 			                	<s:if test="%{product.active == 1}">
