@@ -119,9 +119,12 @@
 			        </a>
 			        <div class="product-overlay__stock">
 			            <s:iterator value="stocks">
-							<s:if test="%{number != 0}">
-								<span class="in-stock">&bull;</span> <span class="in-stock--text">In Stock</span>
+							<s:if test="%{number < 0}">
+								<span class="out-of-stock">&bull;</span> <span class="in-stock--text">By PO</span>
 							</s:if>
+							<s:elseif test="%{number != 0}">
+								<span class="in-stock">&bull;</span> <span class="in-stock--text">In Stock</span>
+							</s:elseif>
 							<s:else>
 								<span class="out-of-stock">&bull;</span> <span class="in-stock--text">Out of Stock</span>
 							</s:else>
