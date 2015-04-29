@@ -151,7 +151,7 @@
       <h3><span class="light">Pesan</span> anda</h3>
     </header>
     <dl class="customer_details">
-      <s:textarea value="%{#request.ship.comment}" cssStyle="resize:none;width:550px;height:100px;" readonly="true" />
+      <s:textarea value="%{#request.ship.comment}" cssClass="input-text" cssStyle="resize:none;" readonly="true" />
     </dl>
     
     <header class="title">

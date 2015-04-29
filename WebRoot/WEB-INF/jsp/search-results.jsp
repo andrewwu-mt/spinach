@@ -50,7 +50,7 @@
       <div class="shop-list">
 	    <div class="row  js--isotope-container">
         <s:iterator value="#request.productList">    
-             <div class="js--isotope-target  js--cat-${category.categoryId}" data-price="${priceBottle}" data-rating="5">
+             <div onclick="location.href='product-detail?id=${productId}'" class="js--isotope-target  js--cat-${category.categoryId}" data-price="${priceBottle}" data-rating="5">
 			  <div class="col-xs-6 col-sm-3">
 			    <div class="products__single">
 			      <div class="products__image  push-down-15">

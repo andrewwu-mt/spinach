@@ -42,7 +42,7 @@
 </s:action>
 
 <div class="woocommerce  push-down-30">
-  <div class="container" align="left">
+  <div class="container">
   	Order <s:date name="%{#request.ship.insertDate}" format="MMM dd, yyyy" /> - <s:if test="%{#request.ship.status == 0}">Belum Lunas</s:if><s:else>Lunas</s:else>
   	<br>
   	<br>
