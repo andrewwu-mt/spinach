@@ -88,7 +88,7 @@ $(document).ready(function(){
         <div class="products__content">
         <s:form action="cart-add" method="get" theme="simple" id="form">
 			<s:iterator value="#request.product.stocks">
-				<s:if test="%{number != 0}">
+				<s:if test="%{number > 0}">
 					<s:hidden name="remainder" value="%{number}" id="remainder"/>
 				</s:if>
 				<s:else>

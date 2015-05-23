@@ -109,7 +109,7 @@
 					          <s:hidden cssClass="productId" value="%{productId}"/>
 					          <s:hidden cssClass="priceBottle" value="%{priceBottle}"/>
 					          <s:iterator value="stocks">
-								<s:if test="%{number != 0}">
+								<s:if test="%{number > 0}">
 					            	<s:hidden cssClass="stat" value="1"/>
 								</s:if>
 								<s:else>
