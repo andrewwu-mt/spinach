@@ -287,17 +287,17 @@
           </thead>
           <tfoot>
 			<tr class="cart-subtotal">
-              <th>Total bottle</th>
+              <th>Amount of bottle</th>
               <td><span class="amount" id="totalBottle">${request.totalBottle}</span> bottle(s)</td>
             </tr>
             <tr class="cart-subtotal">
               <s:hidden name="subtotal" value="%{#request.cartTotal}" />
-              <th>Cart Subtotal</th>
+              <th>Subtotal</th>
               <td>IDR <span class="amount" id="sub"><fmt:formatNumber groupingUsed="true">${request.cartTotal}</fmt:formatNumber></span></td>
             </tr>
             <tr class="shipping">
               <s:hidden name="shippingFee" id="shipping_form" value="" />
-              <th>Shipping</th>
+              <th>Shipping Fee</th>
               <td>IDR <span class="amount" id="ship"></span></td>
             </tr>
             <tr class="total" id="admin">
@@ -306,13 +306,13 @@
             </tr>
             <tr class="total">
               <s:hidden name="total" id="total_form" value="" />
-              <th><strong>Order Total</strong></th>
+              <th><strong>Total Order</strong></th>
               <td>
                 <strong>IDR <span class="amount" id="total" ></span></strong>
               </td>
             </tr>
             <tr class="paypal">
-        		<th><strong>USD Exchange Rate</strong></th>
+        		<th><strong>USD Sell Rate</strong></th>
         		<td><span class="amount">IDR&nbsp;<fmt:formatNumber groupingUsed="true">${request.exchange.value}</fmt:formatNumber></span></td>
         	</tr>
         	<tr class="paypal">
@@ -320,7 +320,7 @@
         		<td><span class="amount">3.9% + $0.30 USD per transaction</span></td>
         	</tr>
         	<tr class="paypal">
-        		<th><strong>Total Amount Paid</strong></th>
+        		<th><strong>Total Payment Amount</strong></th>
         		<td><strong><span class="amount" id="paypal"></span></strong></td>
         	</tr>
           </tfoot>

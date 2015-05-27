@@ -108,7 +108,7 @@
 			          <s:hidden cssClass="productId" value="%{productId}"/>
 			          <s:hidden cssClass="priceBottle" value="%{priceBottle}"/>
 			          <s:iterator value="stocks">
-						<s:if test="%{number != 0}">
+						<s:if test="%{number > 0}">
 			            	<s:hidden cssClass="stat" value="1"/>
 						</s:if>
 						<s:else>
@@ -119,9 +119,12 @@
 			        </a>
 			        <div class="product-overlay__stock">
 			            <s:iterator value="stocks">
-							<s:if test="%{number != 0}">
-								<span class="in-stock">&bull;</span> <span class="in-stock--text">In Stock</span>
+							<s:if test="%{number < 0}">
+								<span class="out-of-stock">&bull;</span> <span class="in-stock--text">Call Cust. Service</span>
 							</s:if>
+							<s:elseif test="%{number != 0}">
+								<span class="in-stock">&bull;</span> <span class="in-stock--text">In Stock</span>
+							</s:elseif>
 							<s:else>
 								<span class="out-of-stock">&bull;</span> <span class="in-stock--text">Out of Stock</span>
 							</s:else>

@@ -88,7 +88,7 @@ $(document).ready(function(){
         <div class="products__content">
         <s:form action="cart-add" method="get" theme="simple" id="form">
 			<s:iterator value="#request.product.stocks">
-				<s:if test="%{number != 0}">
+				<s:if test="%{number > 0}">
 					<s:hidden name="remainder" value="%{number}" id="remainder"/>
 				</s:if>
 				<s:else>
@@ -106,9 +106,12 @@ $(document).ready(function(){
           
           <div class="in-stock--single-product">
           	<s:iterator value="#request.product.stocks">
-				<s:if test="%{number != 0}">
-					<span class="in-stock">&bull;</span> <span class="in-stock--text">In Stock <strong>${number}</strong> Ready</span>
+				<s:if test="%{number < 0}">
+					<span class="out-of-stock">&bull;</span> <span class="in-stock--text">Call Cust. Service</span>
 				</s:if>
+				<s:elseif test="%{number != 0}">
+					<span class="in-stock">&bull;</span> <span class="in-stock--text">In Stock <strong>${number}</strong> Ready</span>
+				</s:elseif>
 				<s:else>
 					<span class="out-of-stock">&bull;</span> <span class="in-stock--text">Out of Stock</span>
 				</s:else>
